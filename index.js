@@ -74,13 +74,14 @@ client.on('message', message => {
 	// reate a command variable by calling args.shift(), which will take the first element in array and return it while also removing it from the original array (so that you don't have the command name string inside the args array).
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const input = message.content;
-	const userInput = input.substr('4');
 	// Know your Meme
+	// console.log(input);
 	if (message.content.startsWith(prefix + 'kym')) {
+		const userInput = input.substr('4');
 		if (message.content.endsWith(userInput)) {
 
 			nodeyourmeme.search(userInput).then(res => {
-				console.log('success', res);
+				// console.log('success', res);
 				const titles = (res.name);
 				const descriptions = (res.about);
 
@@ -117,16 +118,17 @@ client.on('message', message => {
 		}
 	}
 	// Wiki Text
-	const inputs = message.content;
-	const userInputs = inputs.substr('6');
+
+
 	if (message.content.startsWith(prefix + 'wiki')) {
-		if (message.content.endsWith(userInputs)) {
-			const query = argv.q || userInputs;
+		const userInput = input.substr('6');
+			const query = argv.q || userInput;
 			const urlWiki = `https://en.wikipedia.org/w/api.php?action=opensearch&search="+ ${query} +"&format=json`
 			request(urlWiki, function(err, response, body) {
 				if (err) {
 					const error = 'cannot connect to the server';
 					message.channel.send(error);
+					message.channel.send('No results, check your spelling first');
 				}
 				else {
 					const wiki = JSON.parse(body);
@@ -134,7 +136,7 @@ client.on('message', message => {
 						const wikiMessage = `You searched for ${wiki[1][i]}: ` + "\n";
 						const wikiMessageDesc = `${wiki[2][i]}` + "\n" + `Follow this link to read more ` + `${wiki[3][i]}`;
 						const wikiURL = `${wiki[3][i]}`;
-						console.log(wikiMessage);
+						// console.log(wikiMessage);
 						const embed = {
 							'title': `${wikiMessage}`,
 							'color': 14274056,
@@ -164,27 +166,22 @@ client.on('message', message => {
 					}
 				}
 			});
-
-		}
-		else {
-			message.channel.send('No results, check your spelling first');
-		}
 	}
 
-	const inputG = message.content;
-	const userInputG = inputG.substr('6');
-	const dbc = new DeathByCaptcha('f00d4tehg0dz', 'y97p61AJmeVf');
+
+	const dbc = new DeathByCaptcha('xxx', 'xxx');
 	// Know your Meme
 	if (message.content.startsWith(prefix + 'google')) {
-		if (message.content.endsWith(userInput)) {
+			const userInput = input.substr('7');
+			const userStripped = userInput;
 			const urls = [];
 			const titles = [];
 			const descriptions = [];
 			const options = {
-				query: userInputG,
+				query: userStripped,
 				host: 'www.google.com',
 				constg: 'en',
-				age: 'd1',
+				// age: 'y',
 				solver: dbc,
 				// last 24 hours ([hdwmy]\d? as in google URL)
 				limit: 1,
@@ -244,7 +241,6 @@ client.on('message', message => {
 				}
 				// next step
 			});
-		}
 	}
 	// if startswith
 
