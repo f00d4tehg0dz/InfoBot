@@ -4,3 +4,4 @@ package-lock.json
 commands/knowyourmeme.js
 commands/test.js
 commands/go.js
+node_modules

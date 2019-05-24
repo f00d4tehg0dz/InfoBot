@@ -19,9 +19,9 @@ module.exports.get_url_extension = function(url) {
 };
 
 module.exports.baseEmbedTemplate = function() {
-	const ftitle = 'created by InfoBot';
+	const ftitle = 'For updates or request new features! https://discord.gg/xfRvhyu';
 	const furl = 'https://i.redd.it/mf48n9y42er01.gif';
-	const inlineurl = 'https://i.gifer.com/VZyJ.gif';
-	const inlineText = 'This info brought to you by Taco Bell, drop in for a Doritos Locos Taco';
+	const inlineurl = 'https://ko-fi.com/f00dplays';
+	const inlineText = 'If you found this info useful, consider buying the developer a coffee? ';
 	return [ftitle, furl, inlineurl, inlineText];
 };
