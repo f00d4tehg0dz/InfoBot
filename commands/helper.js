@@ -20,7 +20,7 @@ module.exports.get_url_extension = function(url) {
 
 module.exports.baseEmbedTemplate = function() {
 	const ftitle = 'For updates or request new features! https://discord.gg/xfRvhyu';
-	const furl = 'https://i.redd.it/mf48n9y42er01.gif';
+	const furl = 'https://media1.tenor.com/images/ae8c4cd5117c3aea2a7f1e4cd71466b5/tenor.gif';
 	const inlineurl = 'https://www.patreon.com/f00ddevelops';
 	const inlineText = 'Support this Bot and other works over at Patreon';
 	return [ftitle, furl, inlineurl, inlineText];
