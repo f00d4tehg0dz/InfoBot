@@ -19,6 +19,7 @@ module.exports = {
 			data.push(`\nTo search Know your Meme, Simply Type  \`${prefix}kym [your search] \` Don't actually use [] in this to get your info!`);
 			data.push(`\nTo search Fandom, Simply Type  \`${prefix}fandom [your search] \` Don't actually use [] in this to get your info!`);
 			data.push(`\nTo search IMDB, Simply Type  \`${prefix}imdb [your search] \` Don't actually use [] in this to get your info!`);
+			data.push(`\nTo flip a coin, Simply Type  \`${prefix}flipcoin\``);
 			data.push('\ncredit to discord user perfectthunder426 for help on the help to get your info!');
 			data.push(`\nEXPERIMENTAL!! Random Gifs, Simply Type  \`${prefix}jiff \` to get a random gif from popular subreddits`);
 

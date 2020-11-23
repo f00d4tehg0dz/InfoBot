@@ -19,6 +19,8 @@ const request = require('request');
 const argv = require('yargs').argv;
 const hltb = require('howlongtobeat');
 const hltbService = new hltb.HowLongToBeatService();
+const headsOrTails = require('@plokidesigns/heads-or-tails');
+
 // This next step is how you'll dynamically retrieve all your newly created command files. Add this below your client.commands line:
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -77,6 +79,50 @@ client.on('message', message => {
 	// reate a command variable by calling args.shift(), which will take the first element in array and return it while also removing it from the original array (so that you don't have the command name string inside the args array).
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const input = message.content;
+
+	if (message.content.startsWith(prefix + 'flipcoin')) {
+		const userInput = input.substr('8');
+		if (message.content.endsWith(userInput)) {
+			try {
+				
+				// console.log('success', res);
+				const titles = 'Coin Flip';
+				const descriptions = headsOrTails().toUpperCase();
+
+				const embed = {
+					'title': `${titles}`,
+					'color': 14274056,
+					'description': `${descriptions}`,
+					'footer': {
+						'icon_url': `${testClass.baseEmbedTemplate()[1]}`,
+						'text': `${testClass.baseEmbedTemplate()[0]}`,
+					},
+					'thumbnail': {
+						'url': 'https://img2.pngio.com/coin-toss-heads-or-tails-coin-flip-png-free-transparent-png-coin-flip-png-820_780.png',
+					},
+					'fields': [
+						{
+							'name': `${testClass.baseEmbedTemplate()[3]}`,
+							'value': `${testClass.baseEmbedTemplate()[2]}`,
+						},
+					],
+					'author': {
+						'name': 'f00d',
+					},
+				};
+				message.channel.send({
+					embed,
+				});
+			}
+			catch(err) {
+				message.channel.send(err, 'No results, check your spelling first');
+			}
+		}
+		else {
+			message.channel.send('No results, check your spelling first');
+		}
+	}
+
 
 	// Know your Meme
 	// console.log(input);
