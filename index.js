@@ -86,28 +86,14 @@ client.on('message', message => {
 			try {
 				
 				// console.log('success', res);
-				const titles = 'Coin Flip';
-				const descriptions = headsOrTails().toUpperCase();
+				const titles = headsOrTails().toUpperCase();
 
 				const embed = {
 					'title': `${titles}`,
 					'color': 14274056,
-					'description': `${descriptions}`,
-					'footer': {
-						'icon_url': `${testClass.baseEmbedTemplate()[1]}`,
-						'text': `${testClass.baseEmbedTemplate()[0]}`,
-					},
+					
 					'thumbnail': {
 						'url': 'https://img2.pngio.com/coin-toss-heads-or-tails-coin-flip-png-free-transparent-png-coin-flip-png-820_780.png',
-					},
-					'fields': [
-						{
-							'name': `${testClass.baseEmbedTemplate()[3]}`,
-							'value': `${testClass.baseEmbedTemplate()[2]}`,
-						},
-					],
-					'author': {
-						'name': 'f00d',
 					},
 				};
 				message.channel.send({
