@@ -16,7 +16,7 @@ module.exports = {
 			const urlLink = (pickone[0].url);
 			console.log('grabbing url', urlLink);
 			const postTitle = (pickone[0].title);
-			var postTitleStrip = postTitle.slice(0, 20);
+			const postTitleStrip = postTitle.slice(0, 20);
 			const postAuthor = (pickone[0].author);
 			const urlThumb = (pickone[0].thumbnail);
 
@@ -56,12 +56,10 @@ module.exports = {
 					return finalURL;
 				}
 				else {
-
-						console.log(urlLink);
-						const finalURL = 'https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif'
-						message.channel.send('You wont belive this, but no results! Try again!');
-						return finalURL
-
+					console.log(urlLink);
+					const finalURL = 'https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif';
+					message.channel.send('You wont believe this, but no results! Try again!');
+					return finalURL;
 				}
 			}
 			const gfyexists = gfy();

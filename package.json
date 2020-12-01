@@ -26,6 +26,7 @@
     "quora-api": "^1.0.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
+    "roll-anything": "^2.0.0",
     "wikipedia-tldr": "^1.0.2",
     "wordwrap": "^1.0.0",
     "yargs": "^13.2.1"
